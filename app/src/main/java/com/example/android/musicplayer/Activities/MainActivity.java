@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 
+import com.example.android.musicplayer.Adapters.PlaylistAdapter;
 import com.example.android.musicplayer.Data.DatabaseStore;
 import com.example.android.musicplayer.R;
 
@@ -18,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         databaseStore = new DatabaseStore(getApplicationContext());
-        Log.d("LOG",databaseStore.getPlaylists().toString());
+        PlaylistAdapter adapter = new PlaylistAdapter(this, databaseStore.getPlaylists());
+        ListView listView = (ListView) findViewById(R.id.playlist_list);
+        listView.setAdapter(adapter);
     }
 }

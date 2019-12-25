@@ -14,18 +14,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class DatabaseStore {
-    private List<Playlist> playlists = null;
+    private ArrayList<Playlist> playlists = null;
 
     public DatabaseStore(Context context) {
         loadData(context);
     }
 
-    public List<Playlist> getPlaylists() {
+    public ArrayList<Playlist> getPlaylists() {
         return playlists;
     }
 
     private void loadData(Context context) {
-        List<Playlist> items = new ArrayList<>();
+        ArrayList<Playlist> items = new ArrayList<>();
 
         try {
             JSONObject databaseJSON = new JSONObject(loadJSONFile(context));
