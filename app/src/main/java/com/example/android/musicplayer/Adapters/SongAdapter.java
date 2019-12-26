@@ -1,10 +1,12 @@
 package com.example.android.musicplayer.Adapters;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,12 +36,14 @@ public final class SongAdapter extends ArrayAdapter<Song> {
 
         Song current = songs.get(position);
 
-        TextView title= listItem.findViewById(R.id.song_item_list_title);
+        TextView title = listItem.findViewById(R.id.song_item_list_title);
         title.setText(current.getName());
 
-//        TextView detail = listItem.findViewById(R.id.playlist_item_list_detail);
-//        String numberOfSongs = String.valueOf(current.getSongs().size());
-//        detail.setText("Number of songs - " + numberOfSongs);
+        Resources resources = getContext().getResources();
+        String packageName = getContext().getPackageName();
+
+        ImageView imageView = listItem.findViewById(R.id.song_item_image);
+        imageView.setImageDrawable(resources.getDrawable(resources.getIdentifier("drawable/" + current.getImageName(), "drawable", packageName)));
 
         return listItem;
     }

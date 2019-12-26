@@ -23,6 +23,7 @@ public class PlaylistsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         setTitle(R.string.playlist_activity_title);

@@ -72,7 +72,8 @@ public final class DatabaseStore {
         for(int index = 0; index < jsonArray.length(); index++){
             JSONObject itemJSON = jsonArray.getJSONObject(index);
             String name = itemJSON.get("name").toString();
-            Song song = new Song(name);
+            String imageName = itemJSON.get("image").toString();
+            Song song = new Song(name, imageName);
             objects.add(song);
         }
 

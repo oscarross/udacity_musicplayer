@@ -24,8 +24,8 @@ public class SongsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_songs);
 
+        setContentView(R.layout.activity_songs);
 
         if (getSupportActionBar() == null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -43,17 +43,16 @@ public class SongsActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Song song = songs.get(position);
-                createPlayerActicity(song);
+                openPlayerActicity(position);
             }
         });
     }
 
-    private void createPlayerActicity(Song song) {
+    private void openPlayerActicity(int position) {
         Intent playerIntent = new Intent(SongsActivity.this, PlayerActivity.class);
 
         playerIntent.putExtra(PlayerActivity.SONGS, songs);
-        playerIntent.putExtra(PlayerActivity.SONG, song);
+        playerIntent.putExtra(PlayerActivity.CURRENT_SONG_POSITION, position);
 
         startActivity(playerIntent);
     }

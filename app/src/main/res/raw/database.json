@@ -4,7 +4,8 @@
       "name": "Rock",
       "songs": [
         {
-          "name": "Bohemian Rhapsody"
+          "name": "Bohemian Rhapsody",
+          "image": "bohemian_rhapsody"
         }
       ]
     },
@@ -12,7 +13,8 @@
       "name": "Rap",
       "songs": [
         {
-          "name": "Lose Yourself"
+          "name": "Lose Yourself",
+          "image": "eminemloseyourself"
         }
       ]
     }
