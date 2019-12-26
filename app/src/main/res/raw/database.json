@@ -1,16 +1,20 @@
 {
   "playlist_array": [
     {
-      "name": "Rock"
+      "name": "Rock",
+      "songs": [
+        {
+          "name": "Bohemian Rhapsody"
+        }
+      ]
     },
     {
-      "name": "Rap"
-    },
-    {
-      "name": "Christmas songs"
-    },
-    {
-      "name": "Disco"
+      "name": "Rap",
+      "songs": [
+        {
+          "name": "Lose Yourself"
+        }
+      ]
     }
   ]
 }

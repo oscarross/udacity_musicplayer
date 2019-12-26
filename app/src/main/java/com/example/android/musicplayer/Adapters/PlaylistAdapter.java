@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class PlaylistAdapter extends ArrayAdapter<Playlist> {
-    private List<Playlist> playlists = new ArrayList<>();
+    private List<Playlist> playlists;
 
     public PlaylistAdapter(@NonNull Context context, ArrayList<Playlist> list) {
         super(context, 0 , list);
@@ -34,11 +34,12 @@ public final class PlaylistAdapter extends ArrayAdapter<Playlist> {
 
         Playlist current = playlists.get(position);
 
-        TextView title= (TextView)listItem.findViewById(R.id.playlist_item_list_title);
+        TextView title= listItem.findViewById(R.id.playlist_item_list_title);
         title.setText(current.getName());
 
-        TextView detail = (TextView) listItem.findViewById(R.id.playlist_item_list_detail);
-        detail.setText(current.getName());
+        TextView detail = listItem.findViewById(R.id.playlist_item_list_detail);
+        String numberOfSongs = String.valueOf(current.getSongs().size());
+        detail.setText("Number of songs - " + numberOfSongs);
 
         return listItem;
     }

@@ -11,7 +11,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 public final class DatabaseStore {
     private ArrayList<Playlist> playlists = null;
@@ -35,8 +34,8 @@ public final class DatabaseStore {
                 JSONObject itemJSON = databaseJSONArray.getJSONObject(index);
 
                 String name = itemJSON.get("name").toString();
-
-                Playlist playlist = new Playlist(name);
+                ArrayList<Song> songs = createSongsFromJSON(itemJSON,"songs");
+                Playlist playlist = new Playlist(name, songs);
 
                 items.add(playlist);
             }
@@ -64,5 +63,19 @@ public final class DatabaseStore {
             ex.printStackTrace();
             return "";
         }
+    }
+
+    private ArrayList<Song> createSongsFromJSON(JSONObject jsonObject, String key) throws JSONException {
+        JSONArray jsonArray = jsonObject.getJSONArray(key);
+        ArrayList<Song> objects = new ArrayList<Song>();
+
+        for(int index = 0; index < jsonArray.length(); index++){
+            JSONObject itemJSON = jsonArray.getJSONObject(index);
+            String name = itemJSON.get("name").toString();
+            Song song = new Song(name);
+            objects.add(song);
+        }
+
+        return objects;
     }
 }
