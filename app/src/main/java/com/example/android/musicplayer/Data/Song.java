@@ -1,6 +1,8 @@
 package com.example.android.musicplayer.Data;
 
-public final class Song {
+import java.io.Serializable;
+
+public final class Song implements Serializable {
     private String name;
 
     Song(String name) {

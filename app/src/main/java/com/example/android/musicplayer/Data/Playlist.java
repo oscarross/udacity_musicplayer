@@ -1,8 +1,9 @@
 package com.example.android.musicplayer.Data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public final class Playlist {
+public final class Playlist implements Serializable {
     private String name;
     private ArrayList<Song> songs;
 
