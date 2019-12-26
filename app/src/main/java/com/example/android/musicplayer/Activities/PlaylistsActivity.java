@@ -16,7 +16,7 @@ import com.example.android.musicplayer.R;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class PlaylistsActivity extends AppCompatActivity {
 
     private DatabaseStore databaseStore = null;
 
@@ -37,14 +37,17 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Playlist playlist = databaseStore.getPlaylists().get(position);
                 ArrayList<Song> songs = playlist.getSongs();
-
-                Intent songsIntent = new Intent(MainActivity.this, SongsActivity.class);
-
-                songsIntent.putExtra(SongsActivity.SONGS, songs);
-                songsIntent.putExtra(SongsActivity.PLAYLIST, playlist.getName());
-
-                startActivity(songsIntent );
+                createSongsActivity(playlist, songs);
             }
         });
+    }
+
+    private void createSongsActivity(Playlist playlist, ArrayList<Song> songs) {
+        Intent songsIntent = new Intent(PlaylistsActivity.this, SongsActivity.class);
+
+        songsIntent.putExtra(SongsActivity.SONGS, songs);
+        songsIntent.putExtra(SongsActivity.PLAYLIST, playlist.getName());
+
+        startActivity(songsIntent);
     }
 }
