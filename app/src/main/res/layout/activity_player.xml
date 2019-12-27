@@ -43,6 +43,7 @@
         android:gravity="center">
 
         <ImageButton
+            android:id="@+id/player_back_button"
             android:layout_width="@dimen/small_button_size"
             android:layout_height="@dimen/small_button_size"
             android:background="@drawable/ic_back"
@@ -50,6 +51,7 @@
             android:contentDescription="@string/back" />
 
         <ImageButton
+            android:id="@+id/player_play_button"
             android:layout_width="@dimen/big_button_size"
             android:layout_height="@dimen/big_button_size"
             android:background="@drawable/ic_play"
@@ -59,6 +61,7 @@
             android:contentDescription="@string/play" />
 
         <ImageButton
+            android:id="@+id/player_next_button"
             android:layout_width="@dimen/small_button_size"
             android:layout_height="@dimen/small_button_size"
             android:background="@drawable/ic_next"
