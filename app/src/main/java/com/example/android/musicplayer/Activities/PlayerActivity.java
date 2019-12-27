@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.android.musicplayer.Data.Song;
 import com.example.android.musicplayer.R;
@@ -35,8 +36,18 @@ public class PlayerActivity extends AppCompatActivity {
 
         if (position >= 0) {
             Song currentSong = songs.get(position);
-            ImageView imageView = findViewById(R.id.player_image);
-            imageView.setImageDrawable(getResources().getDrawable(getResources().getIdentifier("drawable/" + currentSong.getImageName(), "drawable", getPackageName())));
+            setupWithSong(currentSong);
         }
+    }
+
+    private void setupWithSong(Song song) {
+        ImageView imageView = findViewById(R.id.player_image);
+        imageView.setImageDrawable(getResources().getDrawable(getResources().getIdentifier("drawable/" + song.getImageName(), "drawable", getPackageName())));
+
+        TextView title = findViewById(R.id.player_song_title);
+        title.setText(song.getName());
+
+        TextView detail = findViewById(R.id.player_song_detail);
+        detail.setText(song.getArtistName());
     }
 }

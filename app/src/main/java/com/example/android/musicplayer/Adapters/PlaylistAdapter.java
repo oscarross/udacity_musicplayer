@@ -1,6 +1,7 @@
 package com.example.android.musicplayer.Adapters;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,13 +35,21 @@ public final class PlaylistAdapter extends ArrayAdapter<Playlist> {
 
         Playlist current = playlists.get(position);
 
-        TextView title= listItem.findViewById(R.id.playlist_item_list_title);
-        title.setText(current.getName());
-
-        TextView detail = listItem.findViewById(R.id.playlist_item_list_detail);
-        String numberOfSongs = String.valueOf(current.getSongs().size());
-        detail.setText("Number of songs - " + numberOfSongs);
+        changeTitle(listItem, current);
+        changeDetail(listItem, current);
 
         return listItem;
+    }
+
+    private void changeDetail(View listItem, Playlist current) {
+        TextView detail = listItem.findViewById(R.id.playlist_item_list_detail);
+        String numberOfSongs = String.valueOf(current.getSongs().size());
+        String prefix = getContext().getResources().getString(R.string.number_of_songs);
+        detail.setText(String.format("%s - %s", prefix, numberOfSongs));
+    }
+
+    private void changeTitle(View listItem, Playlist current) {
+        TextView title= listItem.findViewById(R.id.playlist_item_list_title);
+        title.setText(current.getName());
     }
 }

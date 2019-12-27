@@ -36,18 +36,28 @@ public final class SongAdapter extends ArrayAdapter<Song> {
 
         Song current = songs.get(position);
 
-        TextView title = listItem.findViewById(R.id.song_item_list_title);
-        title.setText(current.getName());
+        changeTitle(listItem, current);
+        changeDetail(listItem, current);
+        changeImage(listItem, current);
 
-        TextView detail = listItem.findViewById(R.id.song_item_list_detail);
-        detail.setText(current.getArtistName());
+        return listItem;
+    }
 
+    private void changeImage(View listItem, Song current) {
         Resources resources = getContext().getResources();
         String packageName = getContext().getPackageName();
 
         ImageView imageView = listItem.findViewById(R.id.song_item_image);
         imageView.setImageDrawable(resources.getDrawable(resources.getIdentifier("drawable/" + current.getImageName(), "drawable", packageName)));
+    }
 
-        return listItem;
+    private void changeDetail(View listItem, Song current) {
+        TextView detail = listItem.findViewById(R.id.song_item_list_detail);
+        detail.setText(current.getArtistName());
+    }
+
+    private void changeTitle(View listItem, Song current) {
+        TextView title = listItem.findViewById(R.id.song_item_list_title);
+        title.setText(current.getName());
     }
 }
