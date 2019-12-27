@@ -39,6 +39,9 @@ public final class SongAdapter extends ArrayAdapter<Song> {
         TextView title = listItem.findViewById(R.id.song_item_list_title);
         title.setText(current.getName());
 
+        TextView detail = listItem.findViewById(R.id.song_item_list_detail);
+        detail.setText(current.getArtistName());
+
         Resources resources = getContext().getResources();
         String packageName = getContext().getPackageName();
 

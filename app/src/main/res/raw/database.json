@@ -5,7 +5,18 @@
       "songs": [
         {
           "name": "Bohemian Rhapsody",
-          "image": "bohemian_rhapsody"
+          "image": "bohemian_rhapsody",
+          "artist": "Quuen"
+        },
+        {
+          "name": "Nothing Else Matters",
+          "image": "nothingelsematters",
+          "artist": "Metalica"
+        },
+        {
+          "name": "Smells Like Teen Spirit",
+          "image": "smells_like_teen_spirit",
+          "artist": "Nirvana"
         }
       ]
     },
@@ -14,7 +25,18 @@
       "songs": [
         {
           "name": "Lose Yourself",
-          "image": "eminemloseyourself"
+          "image": "eminemloseyourself",
+          "artist": "Eminem"
+        },
+        {
+          "name": "In da Club",
+          "image": "indaclub",
+          "artist": "50 cent"
+        },
+        {
+          "name": "99 Problems",
+          "image": "jayz_problems",
+          "artist": "Jay-Z"
         }
       ]
     }
